@@ -13,6 +13,11 @@ int main (int argc, char* argv[], char* envp[])
 		printf("Pass file to print as first arg, amount of lines to print (n = 0 for whole text)");
 		exit(1);
 	}
+	int N = atoi(argv[2]);
+	if (N < 0){
+		printf("Wrong lines count: %d!\n", N);
+		exit(1);
+	}
 
 	f = fopen(argv[1], "r");
 	if (f == NULL)
@@ -22,7 +27,7 @@ int main (int argc, char* argv[], char* envp[])
 	}
 
 
-	int N = atoi(argv[2]);
+
 	int printedLines = 0;
 	while((c = getc(f)) != EOF){
 		if (N == 0){
