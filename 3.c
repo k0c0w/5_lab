@@ -56,6 +56,9 @@ void recursive_fork(int* totalProccessesStarted,  int leafsCount, int depthLeft)
 				*totalProccessesStarted += (power(leafsCount, depthLeft) - 1) / (leafsCount - 1);
 		}
 	}
+	for (int i = 0; i < leafsCount; i++)
+		wait(NULL);
+
 }
 
 int main(int argc, char* argv[]) {
